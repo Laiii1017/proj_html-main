@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>練習題</title>
+</head>
+<body>
+   
+    <form>
+        <label for="name">姓名：</label>
+        <input type="text" id="name" name="name"><br><br>
+
+        年齡：
+        <input type="radio" name="age" value="under20"> 未滿20歲
+        <input type="radio" name="age" value="20-29" checked> 20–29
+        <input type="radio" name="age" value="30up"> 30歲或以上
+        <br><br>
+
+        您使用過哪些業者的門號？(可複選)<br>
+        <input type="checkbox" name="carrier" value="cht" checked> 中華電信
+        <input type="checkbox" name="carrier" value="twm"> 台灣大哥大
+        <input type="checkbox" name="carrier" value="fet"> 遠傳
+        <input type="checkbox" name="carrier" value="t-star"> 台灣之星
+        <br><br>
+
+        您使用過哪些廠牌的手機？(可複選)<br>
+        <select name="brand" multiple size="4">
+            <option>ASUS</option>
+            <option>Apple</option>
+            <option>hTC</option>
+            <option>SONY</option>
+        </select>
+        <br><br>
+
+        <input type="submit" value="提交">
+        <input type="reset" value="重新輸入">
+    </form>
+
+</body>
+</html>
