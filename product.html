@@ -1,58 +1,43 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html>
 <head>
     <meta charset="utf-8">
-    <title>商品資訊表格</title>
-    <style>
-        table {
-            border-collapse: collapse;
-            width: 80%;
-            margin: 20px auto;
-        }
-        caption {
-            font-size: 1.5em;
-            margin-bottom: 10px;
-            color: darkblue;
-        }
-        th, td {
-            border: 1px solid black;
-            padding: 8px;
-            text-align: center;
-        }
-        th {
-            background-color: #cce5ff;
-        }
-        tfoot td {
-            background-color: #e6e6e6;
-            font-weight: bold;
-        }
-    </style>
+    <title>商品資訊表</title>
 </head>
+
 <body>
     <table frame="border" rules="all">
-        <caption>商品資訊表格</caption>
+        <caption>商品資訊表</caption>
+
         <thead>
             <tr>
+                <th>編號</th>
                 <th>商品名稱</th>
                 <th>價格</th>
-                <th>庫存</th>
             </tr>
         </thead>
+
         <tbody>
             <tr>
-                <td>鴨嘴獸模型</td>
-                <td>$350</td>
-                <td>20</td>
+                <td>a01</td>
+                <td>上衣</td>
+                <td>200</td>
             </tr>
             <tr>
-                <td>狐朦吊飾</td>
-                <td>$180</td>
-                <td>35</td>
+                <td>a02</td>
+                <td>褲子</td>
+                <td>150</td>
+            </tr>
+            <tr>
+                <td>a03</td>
+                <td>鞋子</td>
+                <td>1000</td>
             </tr>
         </tbody>
+
         <tfoot>
             <tr>
-                <td colspan="3">以上價格均含稅</td>
+                <td colspan="3">註：以上價格皆含稅</td>
             </tr>
         </tfoot>
     </table>
