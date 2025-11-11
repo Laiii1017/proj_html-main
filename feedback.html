@@ -1,61 +1,41 @@
 <!DOCTYPE html>
-<html lang="zh-Hant">
+<html>
 <head>
     <meta charset="utf-8">
     <title>意見回饋表單</title>
-    <style>
-        form {
-            width: 400px;
-            margin: 30px auto;
-            padding: 20px;
-            border: 2px solid #b0c4de;
-            border-radius: 10px;
-            background-color: #f8faff;
-        }
-        label {
-            display: block;
-            margin-top: 10px;
-            font-weight: bold;
-        }
-        input, textarea, select, button {
-            width: 100%;
-            margin-top: 5px;
-            padding: 8px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-        }
-        button {
-            background-color: #4a90e2;
-            color: white;
-            border: none;
-            margin-top: 15px;
-        }
-        button:hover {
-            background-color: #357abd;
-        }
-    </style>
 </head>
 <body>
-    <h1 align="center">意見回饋表單</h1>
-    <form action="#" method="post">
-        <label for="name">姓名：</label>
-        <input type="text" id="name" name="name" required>
+  
+    <form>
+        <p>
+            <label for="userName">姓名：</label>
+            <input type="text" id="userName" name="userName" size="20">
+        </p>
 
-        <label for="email">電子郵件：</label>
-        <input type="email" id="email" name="email" required>
+        <p>
+            <label for="userEmail">電子郵件：</label>
+            <input type="email" id="userEmail" name="userEmail" size="25">
+        </p>
 
-        <label for="topic">問題類型：</label>
-        <select id="topic" name="topic">
-            <option value="product">商品問題</option>
-            <option value="service">服務意見</option>
-            <option value="other">其他</option>
-        </select>
+        <p>
+            <label for="userMessage">問題描述：</label><br>
+            <textarea id="userMessage" name="userMessage" rows="4" cols="40"></textarea>
+        </p>
 
-        <label for="message">意見內容：</label>
-        <textarea id="message" name="message" rows="4" placeholder="請輸入您的意見..."></textarea>
+        <p>
+            <label for="category">問題分類：</label>
+            <select id="category" name="category">
+                <option>登入問題</option>
+                <option>付款問題</option>
+                <option>系統錯誤</option>
+                <option>其他</option>
+            </select>
+        </p>
 
-        <button type="submit">送出</button>
-        <button type="reset">清除</button>
+        <p>
+            <input type="submit" value="送出">
+            <input type="reset" value="重設">
+        </p>
     </form>
 </body>
 </html>
