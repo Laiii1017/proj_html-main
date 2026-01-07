@@ -1,0 +1,283 @@
+:root{
+  --bg: #ffffff;
+  --panel: rgba(255,255,255,0.92);
+  --text: #111213;
+  --muted: #6b7280;
+  --border: #e5e7eb;
+}
+
+html{ scroll-behavior: smooth; }
+
+body{
+  background: #fff;
+  color: var(--text);
+}
+
+.section-pad{ padding: 64px 0; }
+.section-alt{ background: linear-gradient(180deg, transparent, rgba(17,18,19,0.03), transparent); }
+
+.hero-section{
+  padding: 84px 0;
+  background: linear-gradient(180deg, rgba(17,18,19,0.03), transparent 55%);
+}
+
+/* Hero 更貼右側一點（滿版感） */
+@media (min-width: 992px){
+  .hero-wide .container{ padding-right: 0; }
+}
+
+.section-title{
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  margin-bottom: 10px;
+}
+
+.shadow-soft{ box-shadow: 0 18px 40px rgba(0,0,0,0.12); }
+
+/* ========== Hero 照片：無圓角 + 左側白色漸層過渡 ========== */
+.hero-photo{
+  position: relative;
+  width: 100%;
+  height: clamp(380px, 46vw, 560px);
+  overflow: hidden;
+  border-radius: 0;
+}
+
+.hero-photo-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 白色漸層融合到左邊 */
+.hero-photo::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0.96) 0%,
+    rgba(255,255,255,0.78) 16%,
+    rgba(255,255,255,0.28) 34%,
+    rgba(255,255,255,0.00) 54%
+  );
+  z-index: 2;
+}
+
+/* ========== 一般圖片框：無圓角、無黑邊 ========== */
+.media-frame{
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 0;
+  border: 0;
+  aspect-ratio: 16 / 9;
+  background: #fff;
+}
+.profile-frame{ aspect-ratio: 3 / 4; }
+
+.media-img{
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* 簡單介紹框 */
+.simple-box{
+  border: 1px solid var(--border);
+  background: var(--panel);
+  padding: 14px 16px;
+}
+
+/* 資訊卡 */
+.info-card{
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 14px 14px;
+}
+.info-label{ color: var(--muted); font-size: 0.85rem; }
+.info-value{ font-weight: 700; }
+
+/* ========== 心路歷程：滿版橫條照片（無文字、左右淡出） ========== */
+.journey-fullbleed{
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+}
+
+/* 置中、控制高度、加左右淡出遮罩 */
+.journey-strip-wrap{
+  position: relative;
+  width: 100%;
+  height: clamp(240px, 34vw, 420px);
+  overflow: hidden;
+  background: #fff;
+}
+
+/* 左右兩側透明度變淡（白底淡出） */
+.journey-strip-wrap::before,
+.journey-strip-wrap::after{
+  content:"";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 140px;
+  pointer-events: none;
+  z-index: 3;
+}
+.journey-strip-wrap::before{
+  left: 0;
+  background: linear-gradient(90deg,
+    rgba(255,255,255,1) 0%,
+    rgba(255,255,255,0.75) 35%,
+    rgba(255,255,255,0) 100%
+  );
+}
+.journey-strip-wrap::after{
+  right: 0;
+  background: linear-gradient(270deg,
+    rgba(255,255,255,1) 0%,
+    rgba(255,255,255,0.75) 35%,
+    rgba(255,255,255,0) 100%
+  );
+}
+
+/* 橫向滑動：每張圖一頁、無匡線、無縫 */
+.journey-strip{
+  height: 100%;
+  display: flex;
+  gap: 0;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.journey-strip::-webkit-scrollbar{ display:none; }
+
+.journey-slide{
+  flex: 0 0 100%;
+  height: 100%;
+  scroll-snap-align: center;
+}
+
+.journey-slide img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border: 0;
+  border-radius: 0;
+}
+
+/* 手機上淡出寬度縮小，避免遮太多 */
+@media (max-width: 576px){
+  .journey-strip-wrap::before,
+  .journey-strip-wrap::after{
+    width: 90px;
+  }
+}
+
+/* ========== 圖片精選：固定橫向（16:9）+ 左右淡出 + 一句話 ========== */
+.highlight-card{
+  border: 1px solid var(--border);
+  background: #fff;
+  border-radius: 0;
+  overflow: hidden;
+  margin-bottom: 14px;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+.highlight-card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.10);
+}
+
+.highlight-thumb{
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;   /* ✅ 固定橫向比例 */
+  overflow: hidden;
+  background: #fff;
+}
+.highlight-thumb img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ✅ 左右淡出（透明度降低效果：白底漸層） */
+.fade-sides::before,
+.fade-sides::after{
+  content:"";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 140px;
+  pointer-events: none;
+  z-index: 2;
+}
+.fade-sides::before{
+  left: 0;
+  background: linear-gradient(90deg,
+    rgba(255,255,255,1) 0%,
+    rgba(255,255,255,0.75) 35%,
+    rgba(255,255,255,0) 100%
+  );
+}
+.fade-sides::after{
+  right: 0;
+  background: linear-gradient(270deg,
+    rgba(255,255,255,1) 0%,
+    rgba(255,255,255,0.75) 35%,
+    rgba(255,255,255,0) 100%
+  );
+}
+
+/* 手機淡出寬度縮小，避免遮太多 */
+@media (max-width: 576px){
+  .fade-sides::before,
+  .fade-sides::after{
+    width: 90px;
+  }
+}
+
+.highlight-caption{
+  padding: 10px 12px 12px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text);
+}
+
+
+/* 連結卡 */
+.link-card{
+  display: block;
+  text-decoration: none;
+  background: #fff;
+  border: 1px solid var(--border);
+  padding: 14px 14px;
+  color: var(--text);
+  border-radius: 0;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+.link-card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.10);
+  color: var(--text);
+}
+.link-title{ font-weight: 800; }
+.link-sub{ font-size: 0.9rem; }
+
+/* 滾動浮現 */
+.reveal{
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 520ms ease, transform 520ms ease;
+  will-change: opacity, transform;
+}
+.reveal-visible{
+  opacity: 1;
+  transform: translateY(0);
+}
